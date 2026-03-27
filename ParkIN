@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ANPR Firebase Dashboard</title>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+</head>
+<body style="text-align:center; font-family:Arial; background:#111; color:#fff;">
+
+<h1>🚗 Live ANPR (Firebase)</h1>
+<h2 id="plate">Waiting...</h2>
+
+<script>
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  databaseURL: "https://YOUR_PROJECT.firebaseio.com",
+  projectId: "YOUR_PROJECT",
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+db.ref("anpr").on("value", (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+        document.getElementById("plate").innerText = data.plate;
+    }
+});
+</script>
+
+</body>
+</html>
