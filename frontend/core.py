@@ -1,7 +1,7 @@
 from supabase import create_client
 
-url = "https://YOUR_PROJECT.supabase.co"
-key = "YOUR_SECRET_KEY"
+url = "https://postgres.zuovjoaizcggcllzpjsz.supabase.co"
+key = "sb_secret_z1c3SwaLG-RKSaIA_iwJ-A_qOQH_SlJ"
 
 supabase = create_client(url, key)
 
